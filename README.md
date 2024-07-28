@@ -20,10 +20,10 @@ Specifically, Our framework achieves modal integration during encoding by sharin
 
 <div align="center"> 
 
-![StitchFusion](figs/StitchFusion_1.png)
+![StitchFusion](figs/stitchfusion_1.png)
 **Figure:** Comparison of different model fusion paradigms.
 
-![StitchFusion](figs/StitchFusion_2.png)
+![StitchFusion](figs/stitchfusion_2.png)
 **Figure:** MultiAdapter Module For StitchFusion Framwork At Different Density Levels.
 
 </div>
