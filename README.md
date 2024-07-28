@@ -107,6 +107,8 @@ All .pth will release later.
 ![StitchFusion](figs/main_results.png)
 **Figure:** Main Results: Comparision With SOTA Model.
 
+![StitchFusion](figs/perclass_lidar_fig.png)
+**Figure:** Main Results: Per-Class Comparision in Different Modality Combination Config and With SOTA Model.
 ### MCubeS
 
 ### FMB
