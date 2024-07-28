@@ -109,7 +109,7 @@ All .pth will release later.
 
 ### PST900
 
-### DeLiver
+### DeLiVER
 
 ### MFNet
 
