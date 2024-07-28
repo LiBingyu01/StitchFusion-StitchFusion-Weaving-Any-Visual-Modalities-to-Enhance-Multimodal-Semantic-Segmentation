@@ -1,0 +1,64 @@
+DEVICE          : cuda                        # device used for training and evaluation (cpu, cuda, cuda0, cuda1, ...)
+SAVE_DIR        : '/mnt/../code/stitchfusion/checkpoints_training/stitchfusion_mcubes'          # output folder name used for saving the model, logs and inference results
+GPUs            : 4
+GPU_IDs         : [0,1,2,3]
+USE_WANDB       : False                       # Whether you want to use wandb
+WANDB_NAME      : 'stitchfusion-MCubeS-RGBNAD'        # name for the run
+
+MODEL:
+  NAME          : stitchfusion                                         # name of the model you are using
+  BACKBONE      : stitchfusion-B4                                      # model variant
+  PRETRAINED    : '/mnt/../code/stitchfusion_01/checkpoints/pretrained/segformers/mit_b4.pth'     # backbone model's weight 
+  RESUME        : ''                                               # checkpoint file
+  # RESUME        : ''                                                # checkpoint file
+
+DATASET:
+  NAME          : MCubeS                                            # dataset name to be trained with (camvid, cityscapes, ade20k)
+  ROOT          : '/mnt/../code/stitchfusion_01/data/MCubeS/multimodal_dataset/'                            # dataset root path
+  IGNORE_LABEL  : 255
+  # MODALS        : ['image']
+  # MODALS        : ['image', 'nir'] 
+  # MODALS        : ['image', 'aolp']
+  # MODALS        : ['image', 'dolp']
+  # MODALS        : ['image', 'aolp', 'nir']
+  # MODALS        : ['image', 'aolp', 'dolp']
+  MODALS        : ['image', 'nir', 'aolp', 'dolp']
+
+TRAIN:
+  IMAGE_SIZE    : [512, 512]      # training image size in (h, w) === Fixed in dataloader, following MCubeSNet
+  BATCH_SIZE    : 8               # batch size used to train
+  EPOCHS        : 400             # number of epochs to train
+  EVAL_START    : 100               # evaluation interval during training
+  EVAL_INTERVAL : 1               # evaluation interval during training
+  AMP           : true            # use AMP in training
+  DDP           : false           # use DDP training
+
+LOSS:
+  NAME          : OhemCrossEntropy # loss function name
+  CLS_WEIGHTS   : false            # use class weights in loss calculation
+
+OPTIMIZER:
+  NAME          : adamw           # optimizer name
+  LR            : 0.00006         # initial learning rate used in optimizer
+  WEIGHT_DECAY  : 0.01            # decay rate used in optimizer 
+
+SCHEDULER:
+  NAME          : warmuppolylr    # scheduler name
+  POWER         : 0.9             # scheduler power
+  WARMUP        : 10              # warmup epochs used in scheduler
+  WARMUP_RATIO  : 0.1             # warmup ratio
+
+
+EVAL:
+  MODEL_PATH    : '/data01/../StitchFusion_CHEKPOINT/checkpoint/Mcubes_checkpoints/RGBADN/StitchFusion_StitchFusion-B4_MCubeS_RGBADN_ONE_BSN(2-1)_PCN_CA_53.92.pth'                 # Path to your saved model
+  IMAGE_SIZE    : [1024, 1024]                              # evaluation image size in (h, w)                       
+  BATCH_SIZE    : 1                                         # batch size
+  IMAGEROOT     : '/mnt/../code/stitchfusion_01/data/MCubeS/multimodal_dataset/'
+  BATCH_SIZE_VIS : 1                                       # batch size
+  VIS_SAVE_DIR  : '/data01/../StitchFusion_CHEKPOINT/stitchfusion/visualization/Mcubes_Pffms/RGBADN'              # Where to save visualization
+  VIS_TSNE_SAVE_DIR  : '/data01/../StitchFusion_CHEKPOINT/stitchfusion/visualization_tsne/mcubes/RGBADN'              # Where to save visualization
+  MSF: 
+    ENABLE      : false                                   # multi-scale and flip evaluation  
+    FLIP        : true                                    # use flip in evaluation  
+    SCALES      : [0.5, 0.75, 1.0, 1.25, 1.5, 1.75]       # scales used in MSF evaluation                
+  OVERLAY       : false                                   # save the overlay result (image_alpha+label_alpha)

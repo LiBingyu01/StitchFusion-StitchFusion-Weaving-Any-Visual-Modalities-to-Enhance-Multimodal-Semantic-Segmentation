@@ -1,0 +1,62 @@
+DEVICE          : cuda                        # device used for training and evaluation (cpu, cuda, cuda0, cuda1, ...)
+SAVE_DIR        : '/mnt/../code/stitchfusion/checkpoints_training/stitchfusion_deliver'          # output folder name used for saving the model, logs and inference results
+GPUs            : 8
+GPU_IDs         : [0, 1, 2, 3, 4, 5, 6, 7]
+USE_WANDB       : False
+WANDB_NAME      : 'stitchfusion-deliver'             # name for the run
+
+MODEL:
+  NAME          : stitchfusion                                         # name of the model you are using
+  BACKBONE      : stitchfusion-B2                                      # model variant
+  PRETRAINED    : '/mnt/../code/stitchfusion/checkpoints/pretrained/segformers/mit_b2.pth'     # backbone model's weight 
+  RESUME        : ''                                                # checkpoint file
+
+DATASET:
+  NAME          : DELIVER                                               # dataset name to be trained with (camvid, cityscapes, ade20k)
+  ROOT          : '/mnt/../code/stitchfusion/data/DELIVER'                            # dataset root path
+  IGNORE_LABEL  : 255
+  # MODALS        : ['img']
+  # MODALS        : ['img', 'depth']
+  MODALS        : ['img', 'event']
+  # MODALS        : ['img', 'lidar']
+  # MODALS        : ['img', 'depth', 'event']
+  # MODALS        : ['img', 'depth', 'lidar']
+  # MODALS        : ['img', 'depth', 'event', 'lidar']
+
+TRAIN:
+  IMAGE_SIZE    : [1024, 1024]      # training image size in (h, w) === Fixed in dataloader, following MCubeSNet
+  BATCH_SIZE    : 8               # batch size used to train
+  EPOCHS        : 200             # number of epochs to train
+  EVAL_START    : 25               # evaluation interval during training
+  EVAL_INTERVAL : 1               # evaluation interval during training
+  AMP           : true            # use AMP in training
+  DDP           : false           # use DDP training
+
+LOSS:
+  NAME          : OhemCrossEntropy # loss function name
+  CLS_WEIGHTS   : false            # use class weights in loss calculation
+
+OPTIMIZER:
+  NAME          : adamw           # optimizer name
+  LR            : 0.00006         # initial learning rate used in optimizer
+  WEIGHT_DECAY  : 0.01            # decay rate used in optimizer 
+
+SCHEDULER:
+  NAME          : warmuppolylr    # scheduler name
+  POWER         : 0.9             # scheduler power
+  WARMUP        : 10              # warmup epochs used in scheduler
+  WARMUP_RATIO  : 0.1             # warmup ratio
+  
+
+EVAL:
+  MODEL_PATH    : '/data01/../StitchFusion_CHEKPOINT/stitchfusion/DELIVER_checkpoints/RGBE/StitchFusion_StitchFusion-B2_DELIVER_RGBE_57.44.pth'                  # Path to your saved model
+  IMAGE_SIZE    : [1024, 1024]                              # evaluation image size in (h, w)                       
+  IMAGEROOT     : '/mnt/../code/stitchfusion/data/DELIVER'
+  BATCH_SIZE    : 8                                       # batch size
+  BATCH_SIZE_VIS: 1
+  VIS_SAVE_DIR  : '/mnt/../code/stitchfusion/visualization/deliver/rgbde'              # Where to save visualization
+  VIS_TSNE_SAVE_DIR : '/mnt/../code/stitchfusion/visualization_tsne/deliver/rgbe'              # Where to save visualization
+  MSF: 
+    ENABLE      : false                                   # multi-scale and flip evaluation  
+    FLIP        : true                                    # use flip in evaluation  
+    SCALES      : [0.5, 0.75, 1.0, 1.25, 1.5, 1.75]       # scales used in MSF evaluation                
