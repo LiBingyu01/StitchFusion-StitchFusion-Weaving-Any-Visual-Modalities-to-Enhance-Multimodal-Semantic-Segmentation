@@ -103,6 +103,10 @@ data/
 
 ## 📦 Model Zoo
 All .pth will release later.
+
+![StitchFusion](figs/main_results.png)
+**Figure:** Main Results: Comparision With SOTA Model.
+
 ### MCubeS
 
 ### FMB
@@ -161,6 +165,11 @@ python -m tools.val_mm --cfg configs/deliver.yaml
 python -m tools.val_mm --cfg configs/mfnet_rgbt.yaml
 ```
 
+## 👁️ Evaluation
+![StitchFusion](figs/visulization_deliver_1.png)
+**Figure:** Visulization of StitchFusion On DeLiver Dataset.
+![StitchFusion](figs/visulization_mcubes_1.png)
+**Figure:** Visulization of StitchFusion On Mcubes Dataset.
 ## 🚩 License
 This repository is under the Apache-2.0 license. For commercial use, please contact with the authors.
 
