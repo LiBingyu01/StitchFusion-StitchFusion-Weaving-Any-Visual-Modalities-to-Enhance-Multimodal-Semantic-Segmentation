@@ -14,9 +14,9 @@ Multimodal semantic segmentation shows significant potential for enhancing segme
 Specifically, Our framework achieves modal integration during encoding by sharing multi-modal visual information. To enhance information exchange across modalities, we introduce a multi-directional adapter module (MultiAdapter) to enable cross-modal information transfer during encoding. By leveraging MultiAdapter to propagate multi-scale information across pre-trained encoders during the encoding process, StitchFusion achieves multi-modal visual information integration during encoding. Extensive comparative experiments demonstrate that our model achieves state-of-the-art performance on four multi-modal segmentation datasets with minimal additional parameters. Furthermore, the experimental integration of MultiAdapter with existing Feature Fusion Modules (FFMs) highlights their complementary nature.
 
 ## 🚀 Updates
-- [x] 07/2024: init repository.
-- [x] 07/2024: release the code for StitchFusion.
-
+- [x] 2024/7/27: init repository.
+- [x] 2024/7/27: release the code for StitchFusion.
+- [x] 2024/8/02: upload the paper for StitchFusion.
 ## 🔍 StitchFusion model
 
 <div align="center"> 
