@@ -1,9 +1,10 @@
 <div align="center"> 
 
 ## StitchFusion: Weaving Any Visual Modalities to Enhance Multimodal Semantic Segmentation
-
+ Bingyu Li, Da Zhang, Zhiyuan Zhao, Junyu Gao, Xuelong Li
 </div>
 
+<font size=5><div align='center' > <a href=http://arxiv.org/abs/2408.01343>**Paper**</a></font>
 
 </div>
 
