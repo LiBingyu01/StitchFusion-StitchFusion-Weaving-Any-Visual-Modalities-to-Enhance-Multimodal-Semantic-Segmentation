@@ -3,8 +3,27 @@
 ## StitchFusion: Weaving Any Visual Modalities to Enhance Multimodal Semantic Segmentation
  Bingyu Li, Da Zhang, Zhiyuan Zhao, Junyu Gao, Xuelong Li
 </div>
+<p align="center">
+<a href="http://arxiv.org/abs/2408.01343">
+    <img src="https://img.shields.io/badge/arXiv-2406.01210-green" /></a>
+<a href="https://pytorch.org/">
+    <img src="https://img.shields.io/badge/Framework-PyTorch-orange.svg" /></a>
+<a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" /></a>
+</p>
 
-<font size=5><div align='center' > <a href=http://arxiv.org/abs/2408.01343>**Paper**</a></font>
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/2408-01343/semantic-segmentation-on-deliver)](https://paperswithcode.com/sota/semantic-segmentation-on-deliver?p=2408-01343)
+
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/2408-01343/semantic-segmentation-on-fmb-dataset)](https://paperswithcode.com/sota/semantic-segmentation-on-fmb-dataset?p=2408-01343)
+
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/2408-01343/semantic-segmentation-on-mcubes)](https://paperswithcode.com/sota/semantic-segmentation-on-mcubes?p=2408-01343)
+
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/2408-01343/thermal-image-segmentation-on-pst900)](https://paperswithcode.com/sota/thermal-image-segmentation-on-pst900?p=2408-01343)
+
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/2408-01343/thermal-image-segmentation-on-mfn-dataset)](https://paperswithcode.com/sota/thermal-image-segmentation-on-mfn-dataset?p=2408-01343)
+
+This is the official implementation of our paper "[StitchFusion: Weaving Any Visual Modalities to Enhance Multimodal Semantic Segmentation](http://arxiv.org/abs/2408.01343)".
+
 
 </div>
 
