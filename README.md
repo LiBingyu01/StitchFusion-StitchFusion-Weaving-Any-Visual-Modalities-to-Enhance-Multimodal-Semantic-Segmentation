@@ -5,7 +5,7 @@
 </div>
 <p align="center">
 <a href="http://arxiv.org/abs/2408.01343">
-    <img src="https://img.shields.io/badge/arXiv-2406.01210-green" /></a>
+    <img src="https://img.shields.io/badge/arXiv-2408.01343-green" /></a>
 <a href="https://pytorch.org/">
     <img src="https://img.shields.io/badge/Framework-PyTorch-orange.svg" /></a>
 <a href="LICENSE">
