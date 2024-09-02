@@ -197,14 +197,14 @@ This repository is under the Apache-2.0 license. For commercial use, please cont
 
 
 ## 📜 Citations
-'''
+```
 @article{li2024stitchfusion,
   title={StitchFusion: Weaving Any Visual Modalities to Enhance Multimodal Semantic Segmentation},
   author={Li, Bingyu and Zhang, Da and Zhao, Zhiyuan and Gao, Junyu and Li, Xuelong},
   journal={arXiv preprint arXiv:2408.01343},
   year={2024}
 }
-'''
+```
 ## 🔈 Acknowledgements
 Our codebase is based on the following Github repositories. Thanks to the following public repositories:
 - [DELIVER](https://github.com/jamycheung/DELIVER)
