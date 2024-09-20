@@ -32,10 +32,15 @@ This is the official implementation of our paper "[StitchFusion: Weaving Any Vis
 Multimodal semantic segmentation shows significant potential for enhancing segmentation accuracy in complex scenes. However, current methods often incorporate specialized feature fusion modules tailored to specific modalities, thereby restricting input flexibility and increasing the number of training parameters. To address these challenges, we propose StitchFusion, a straightforward yet effective modal fusion framework that integrates large-scale pre-trained models directly as encoders and feature fusers. This approach facilitates comprehensive multi-modal and multi-scale feature fusion, accommodating any visual modal inputs.
 Specifically, Our framework achieves modal integration during encoding by sharing multi-modal visual information. To enhance information exchange across modalities, we introduce a multi-directional adapter module (MultiAdapter) to enable cross-modal information transfer during encoding. By leveraging MultiAdapter to propagate multi-scale information across pre-trained encoders during the encoding process, StitchFusion achieves multi-modal visual information integration during encoding. Extensive comparative experiments demonstrate that our model achieves state-of-the-art performance on four multi-modal segmentation datasets with minimal additional parameters. Furthermore, the experimental integration of MultiAdapter with existing Feature Fusion Modules (FFMs) highlights their complementary nature.
 
+## 🌟 News
+- [x] 2024/9/20: A researcher has inquired about reproducible. pth files, and we are currently organizing them. However, as the permissions have not been granted to interns, we may need to wait for a period of time. If there is any news, we will make an update as soon as possible.If you have any questions, please contact the author's email: libingyu0205@mail.ustc.edu.cn
+
+
 ## 🚀 Updates
 - [x] 2024/7/27: init repository.
 - [x] 2024/7/27: release the code for StitchFusion.
 - [x] 2024/8/02: upload the paper for StitchFusion.
+      
 ## 🔍 StitchFusion model
 
 <div align="center"> 
