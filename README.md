@@ -34,6 +34,7 @@ Specifically, Our framework achieves modal integration during encoding by sharin
 
 ## 🌟 News
 - [x] 2024/9/20: A researcher has inquired about reproducible. pth files, and we are currently organizing them. However, as the permissions have not been granted to interns, we may need to wait for a period of time. If there is any news, we will make an update as soon as possible.If you have any questions, please contact the author's email: libingyu0205@mail.ustc.edu.cn
+- [x] 2024/9/24: 更直接联系我的方式是libingyu0205@163.com，这将直接发到我的手机客户端。
 
 
 ## 🚀 Updates
