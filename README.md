@@ -35,13 +35,15 @@ Specifically, Our framework achieves modal integration during encoding by sharin
 ## 🌟 News
 - [x] 2024/9/20: A researcher has inquired about reproducible. pth files, and we are currently organizing them. However, as the permissions have not been granted to interns, we may need to wait for a period of time. If there is any news, we will make an update as soon as possible.If you have any questions, please contact the author's email: libingyu0205@mail.ustc.edu.cn
 - [x] 2024/9/24: 更直接联系我的方式是libingyu0205@163.com，这将直接发到我的手机客户端。
-- [ ] If you find this repo is useful, please STAR it that make the authors encouraged.
-
-
+- [x] If you find this repo is useful, please STAR it that make the authors encouraged.
+- [x] stitchfusion_with_tips_you_can_copy.py
+- [x] I have updated the reproducible files and made additional versions of StitchFusion available at **stitchfusion_with_tips_you_can_copy.py**. You can simply copy these files and run the experiments. To use any of these versions, just copy the path of the .pth file into the EVAL/MODEL_PATH field in your chosen config.yaml file.
+      
 ## 🚀 Updates
 - [x] 2024/7/27: init repository.
 - [x] 2024/7/27: release the code for StitchFusion.
 - [x] 2024/8/02: upload the paper for StitchFusion.
+- [x] 2024/11/6：upload some checkpoint file for StitchFuion.
       
 ## 🔍 StitchFusion model
 
@@ -129,7 +131,25 @@ data/
 ```
 
 ## 📦 Model Zoo
+### PST
 All .pth will release later.
+| Model-Modal      | mIoU   | weight |
+| :--------------- | :----- | :----- |
+| StitchFusion-RGB-T| 85.35 | [GoogleDrive](https://drive.google.com/drive/folders/1VnE_TxbjRnV5qxsKrypfVv1YbgoIVIaN?usp=sharing) |
+
+### FMB
+All .pth will release later.
+| Model-Modal      | mIoU   | weight |
+| :--------------- | :----- | :----- |
+| StitchFusion-RGB-T| 64.85 | [GoogleDrive](https://drive.google.com/drive/folders/1B78Lgc6Aoln1g6KxKBHbKgFG2Sbdlyd3?usp=sharing) |
+
+### MFNet
+All .pth will release later.
+| Model-Modal      | mIoU   | weight |
+| :--------------- | :----- | :----- |
+| StitchFusion-RGB-T| 57.91 | [GoogleDrive](https://drive.google.com/drive/folders/1JGhuCGQ9o50LDwfmnffbKGONnykoduBx?usp=sharing) |
+| StitchFusion-RGB-T| 57.80 | [GoogleDrive](https://drive.google.com/drive/folders/1JGhuCGQ9o50LDwfmnffbKGONnykoduBx?usp=sharing) |
+| StitchFusion-RGB-T| 58.13 | [GoogleDrive](https://drive.google.com/drive/folders/1JGhuCGQ9o50LDwfmnffbKGONnykoduBx?usp=sharing) |
 
 ![StitchFusion](figs/main_results.png)
 **Figure:** Main Results: Comparision With SOTA Model.
