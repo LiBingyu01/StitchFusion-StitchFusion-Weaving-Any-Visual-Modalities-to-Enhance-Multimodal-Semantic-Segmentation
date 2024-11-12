@@ -151,6 +151,17 @@ All .pth will release later.
 | StitchFusion-RGB-T| 57.80 | [GoogleDrive](https://drive.google.com/drive/folders/1JGhuCGQ9o50LDwfmnffbKGONnykoduBx?usp=sharing) |
 | StitchFusion-RGB-T| 58.13 | [GoogleDrive](https://drive.google.com/drive/folders/1JGhuCGQ9o50LDwfmnffbKGONnykoduBx?usp=sharing) |
 
+### DELIVER
+All .pth will release later.
+| Model-Modal      | mIoU   | weight |
+| :--------------- | :----- | :----- |
+| StitchFusion-RGB-D| 65.75 | [GoogleDrive](https://drive.google.com/drive/folders/1jfEMb7ZNaJyTGwbzE3EUpY9cdrae1EMs?usp=sharing) |
+| StitchFusion-RGB-E| 57.31 | [GoogleDrive](https://drive.google.com/drive/folders/1jfEMb7ZNaJyTGwbzE3EUpY9cdrae1EMs?usp=sharing) |
+| StitchFusion-RGB-L| 58.03 | [GoogleDrive](https://drive.google.com/drive/folders/1jfEMb7ZNaJyTGwbzE3EUpY9cdrae1EMs?usp=sharing) |
+| StitchFusion-RGB-DE| 66.03 | [GoogleDrive](https://drive.google.com/drive/folders/1jfEMb7ZNaJyTGwbzE3EUpY9cdrae1EMs?usp=sharing) |
+| StitchFusion-RGB-DL| 67.06 | [GoogleDrive](https://drive.google.com/drive/folders/1jfEMb7ZNaJyTGwbzE3EUpY9cdrae1EMs?usp=sharing) |
+| StitchFusion-RGB-DEL| 68.18 | [GoogleDrive](https://drive.google.com/drive/folders/1jfEMb7ZNaJyTGwbzE3EUpY9cdrae1EMs?usp=sharing) |
+
 ![StitchFusion](figs/main_results.png)
 **Figure:** Main Results: Comparision With SOTA Model.
 
