@@ -501,21 +501,39 @@ class stitchfusion(nn.Module):
             else:
                 cur += depths[i-1]
             patch_embed = PatchEmbed(3 if i==0 else embed_dims[i-1], embed_dims[i], 7 if i == 0 else 3, 4 if i == 0 else 2, 7//2 if i == 0 else 3//2)
-                
-            # 1
-            # block = nn.ModuleList([Block_every_one(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j]) for j in range(depths[i])])
             
-            # # ------------------- mcubes 64.85 ------------------- #
-            if i < 2 :
-                block = nn.ModuleList([Block_every_one_1(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j]) for j in range(depths[i])])
-            else:
-                block = nn.ModuleList([Block_every_one_2(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j]) for j in range(depths[i])])
+            # all
+            # Block_every_one_1  :shared
+            # Block_every_one_2  :
+            # Block_every_two
+            # Block
+            
+            
+            # # ------------------- DELIVER ------------------- #
+            # --- RGBD RGBE RGBL RGBDL
+            # block = nn.ModuleList([Block_every_one_2(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j],self.num_modals+1) for j in range(depths[i])])
+            # --- RGBDEL
+            # if i < 2 :
+            #     block = nn.ModuleList([Block(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j]) for j in range(depths[i])])
+            # else:
+            #     block = nn.ModuleList([Block_every_one_2(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j],self.num_modals+1) for j in range(depths[i])])
 
+
+            # # ------------------- FMB 64.85 ------------------- #
+            # if i < 2 :
+            #     block = nn.ModuleList([Block_every_one_1(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j]) for j in range(depths[i])])
+            # else:
+            #     block = nn.ModuleList([Block_every_one_2(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j],self.num_modals+1) for j in range(depths[i])])
             # block = nn.ModuleList([Block_every_one_1(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j]) for j in range(depths[i])])
             
-            # # ------------------- mcubes 64.85 ------------------- #
 
-            # # ------------------- mfnet 64.85 ------------------- #
+            # # ------------------- mcubes ------------------- #
+            # ----- RGBAD   BSN(2-1)+FFM
+            block = nn.ModuleList([Block_every_one_2(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j], self.num_modals+1) for j in range(depths[i])])
+            feature_cross = FeatureCross(self.channels, num_modals = self.num_modals + 1)
+            setattr(self, f"feature_cross", feature_cross)
+
+            # # ------------------- mfnet ------------------- #
             # === after
             # if i < 2 :
             #     block = nn.ModuleList([Block(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j]) for j in range(depths[i])])
@@ -523,13 +541,10 @@ class stitchfusion(nn.Module):
             #     block = nn.ModuleList([Block_every_one_1(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j]) for j in range(depths[i])])
             # === no after
             # block = nn.ModuleList([Block_every_one_1(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j]) for j in range(depths[i])])
-            # # ------------------- mfnet 64.85 ------------------- #
-
 
 
             # # ------------------- PST 85.35 ------------------- #
-            # block = nn.ModuleList([Block_every_one_2(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j]) for j in range(depths[i])])
-            # # ------------------- PST 85.35 ------------------- #
+            # block = nn.ModuleList([Block_every_one_2(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j],self.num_modals+1) for j in range(depths[i])])
 
 
             # ------------------- FMB 64.85 ------------------- #
@@ -537,17 +552,7 @@ class stitchfusion(nn.Module):
             #     block = nn.ModuleList([Block_every_one_1(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j]) for j in range(depths[i])])
             # else:
             #     block = nn.ModuleList([Block_every_two(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j]) for j in range(depths[i])])
-            # ------------------- FMB 64.85 ------------------- #
 
-            # 3
-            # block = nn.ModuleList([Block_every_two(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j]) for j in range(depths[i])])
-
-            # # 4
-            # if i < 2 :
-            #     block = nn.ModuleList([Block(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j]) for j in range(depths[i])])
-            # else:
-            #     block = nn.ModuleList([Block_every_two(embed_dims[i], pano_1[i], pano_2[i], dpr[cur+j]) for j in range(depths[i])])
-            
             norm = nn.LayerNorm(embed_dims[i])
             
             # ---------- saving in setattr
@@ -560,8 +565,6 @@ class stitchfusion(nn.Module):
 
         feature_cross = FeatureCross(self.channels, num_modals = self.num_modals + 1)
         setattr(self, f"feature_cross", feature_cross)
-        # feature_conc = FeatureConc(self.channels, num_modals = self.num_modals + 1)
-        # setattr(self, f"feature_conc", feature_conc)
 
     def forward(self, x: list) -> list:
         
@@ -588,15 +591,15 @@ class stitchfusion(nn.Module):
                 
             #--------------- 收集融合特征 ---------------#
             # 1. corss
-            feature_cross = getattr(self, f"feature_cross")
-            x_fusion = feature_cross(x_in, layer_idx=i)
+            # feature_cross = getattr(self, f"feature_cross")
+            # x_fusion = feature_cross(x_in, layer_idx=i)
 
             # 2. conc
             # feature_conc = getattr(self, f"feature_conc")
             # x_fusion = feature_conc(x_in, layer_idx=i)
             
             # 3. add 
-            # x_fusion = torch.sum(torch.stack(x_in), dim=0)
+            x_fusion = torch.sum(torch.stack(x_in), dim=0)
 
             # -------------- saving 
             outs.append(x_fusion)
@@ -611,4 +614,3 @@ if __name__ == '__main__':
     outs = model(x)
     for y in outs:
         print(y.shape)
-
