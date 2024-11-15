@@ -208,7 +208,7 @@ python -m tools.train_mm --cfg configs/pst_rgbt.yaml
 
 
 ## 👁️ Evaluation
-To evaluate StitchFusion models, please download respective model weights ([**GoogleDrive**](https://drive.google.com/drive/folders/1OPr7PUrL7hkBXogmHFzHuTJweHuJmlP-?usp=sharing)) and save them under any folder you like.
+To evaluate StitchFusion models, please download respective model weights (**GoogleDrive**) and save them under any folder you like.
 
 
 Then, update the `EVAL` section of the appropriate configuration file in `configs/` and run:
