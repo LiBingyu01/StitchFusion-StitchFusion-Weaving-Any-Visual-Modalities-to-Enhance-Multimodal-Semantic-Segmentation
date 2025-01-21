@@ -40,7 +40,7 @@ Specifically, Our framework achieves modal integration during encoding by sharin
 - [x] I have updated the reproducible files and made additional versions of StitchFusion available at **stitchfusion_with_tips_you_can_copy.py**. You can simply copy these files and run the experiments. To use any of these versions, just copy the path of the .pth file into the EVAL/MODEL_PATH field in your chosen config.yaml file.
 - [x] I have release the reproducible files for DELIVER dataset, **However, during replication, I observed that the results differed slightly from the reported values, with variations of around a few tenths—some higher, some lower. Nevertheless, these differences do not affect the overall performance comparison of our model.**.
 - [x] **stitchfusion_with_tips_you_can_copy.py** is all you need to reproduce the results.
-                 
+- [x] **Recently, some researchers have reported that they are unable to reproduce the.pth files. Please refer to the issue (closed) to organize the code.**               
 ## 🚀 Updates
 - [x] 2024/7/27: init repository.
 - [x] 2024/7/27: release the code for StitchFusion.
